@@ -1,0 +1,27 @@
+.topnav {
+    overflow: hidden;
+    background-color: whitesmoke;
+
+}
+
+.topnav a {
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav-right {
+    float: right;
+    padding-top: 0.5%;
+}
+
+.search-bar {
+    margin: 5px !important;
+}
