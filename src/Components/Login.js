@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import GoogleLogin from 'react-google-login';
 import { Form, Input, Button, Checkbox} from 'antd';
 import { Link } from 'react-router-dom';
-import Home from "./Home";
+import HomePage from './HomePage';
 
 
 class Login extends Component {
@@ -92,7 +92,7 @@ render() {
         }}
       >
         <Link to='/home'>
-        <Button type="primary" htmlType="submit" className="Login-button" onClick="./Home.js">
+        <Button type="primary" htmlType="submit" className="Login-button" onClick="./HomePage.js">
           Sign In
         </Button>
         </Link>

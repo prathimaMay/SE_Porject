@@ -8,7 +8,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
-import Home from "./Components/Home";
+import HomePage from "./Components/HomePage";
 import ForgotPassword from "./Components/ForgotPassword";
 import 'antd/dist/antd.css';
 
@@ -22,7 +22,7 @@ function App() {
             <Route path="/" exact component={Login} />
             <Route path="/forgotpassword" exact component={ForgotPassword} />
             <Route path="/signup" exact component={SignUp} />
-            <Route path="/home" exact component={Home} />
+            <Route path="/home" exact component={HomePage} />
             </Switch>
         <Footer />
     </div>

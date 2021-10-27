@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import GoogleLogin from 'react-google-login';
 import { Form, Input, Button, Checkbox} from 'antd';
 import { Link } from 'react-router-dom';
-import Home from "./Home";
+import HomePage from './HomePage';
 import AuthenticationService from "./AuthenticationService";
-import AuthenticationLogin from "./AuthenticationLogin";
+import AuthenticationLogin from "../AuthLoginJWT/AuthenticationLogin";
 
 
 
@@ -17,7 +17,7 @@ class Login extends Component {
           login:false,
           store:null
       }
-      //redirect to homw if already logged in
+      //redirect to home if already logged in
       if (AuthenticationLogin.currentuservalue) {
           this.props.history.push('/');
       }

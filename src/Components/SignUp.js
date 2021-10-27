@@ -81,7 +81,7 @@ class SignUp extends Component {
 
 render()
 {
-    const current = this.state.current;
+  const current = this.state.current;
 
   const next= () => {
       this.setState({ current: current + 1 })
@@ -109,14 +109,14 @@ render()
       console.log('Failed:', errorInfo);
     };
 
-    function handleGenreChange(value) {
+    const handleGenreChange = (value) => {
         console.log(`selected ${value}`);
     }
 
-    function handleSQChange(value) {
+    const handleSQChange = (value) => {
       console.log(`selected ${value}`);
     }
-    function createAccount() {
+    const createAccount = () => {
       var param = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
@@ -131,7 +131,7 @@ render()
 
     }
     
-    function getSecurityQuestionsTemplate()
+    const getSecurityQuestionsTemplate = () =>
     {
       let sQuestions;
       sQuestions = <div>
@@ -150,7 +150,7 @@ render()
                   allowClear
                   style={{ width: '100%' }}
                   placeholder="Select Security Question"
-                  onChange={handleSQChange}
+                  // onChange={handleSQChange}
                   value={this.state.sQuestionId}
                 >
                   {this.state.securityQuestions && this.state.securityQuestions.map((question) => <Option key={question.sqId}>{question.sQuestion}</Option>)}
@@ -161,7 +161,7 @@ render()
       return sQuestions;
     } 
 
-    function getStepFormItems(stepId)
+    const getStepFormItems = (stepId) =>
     {
         let formItems;
         if(stepId === 1)
@@ -248,7 +248,7 @@ render()
                   allowClear
                   style={{ width: '100%' }}
                   placeholder="Select Generes"
-                  onChange={handleGenreChange}
+                  // onChange={handleGenreChange}
                 >
                   {this.state.genres && this.state.genres.map((genere) => <Option key={genere.id}>{genere.name}</Option>)}
                 </Select>
@@ -258,8 +258,8 @@ render()
 
     }
     return (
-        <div class='signup-container'>
-            <div class='steps'>
+        <div className='signup-container'>
+            <div className='steps'>
             <Steps current={current}>
                 { steps.map(item => (
                 <Step key={item.title} title={item.title} />

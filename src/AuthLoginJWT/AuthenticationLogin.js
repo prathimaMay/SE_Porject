@@ -1,6 +1,16 @@
-import handleResponse from './handleResponse';
+/* The authentication service is used to login and logout of the application, 
+to login it posts the user's credentials to the /users/authenticate route on the api, 
+if authentication is successful the user details including the token are added to local storage, 
+and the current user is set in the application by calling currentUserSubject.next(user);.
+
+The logged in user details are stored in local storage so the user will stay logged in if they refresh the browser and 
+also between browser sessions until they explicitly logout.
+*/
+
+import handleResponse from './HandleResponse';
 
 const currentUserSubject = JSON.parse(localStorage.getItem('currentUser'));
+console.log(currentUserSubject);
 const API_URL = 'http://localhost:8080'
 
 export const AuthenticationLogin = {
