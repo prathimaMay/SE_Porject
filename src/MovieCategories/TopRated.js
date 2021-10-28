@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import MovieTopRated from './MovieTopRated';
 
-const BaseURL = "https://api.themoviedb.org/3";
-const Search_API = "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
-const APIKEY = '04c35731a5ee918f014970082a0088b1'
-
 const TopRated = () => {   
 
 const [ movies, setMovies ] = useState([]);
 
 useEffect(() => {
-    fetch(''.concat(BaseURL, '/movie/top_rated?api_key=', APIKEY, '&language=en-US&page=1'))
+    fetch('http://localhost:8080/movie/topRatedMovies')
     .then(res => res.json())
     .then(data => {
         console.log(data);
