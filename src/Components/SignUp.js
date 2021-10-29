@@ -123,8 +123,10 @@ render()
         phonenumber: this.state.phonenumber,
         email: this.state.email,
         password: this.state.password,
-        sQuestionId: this.state.sQuestionId,
-        sQuestionAnswer: this.state.sQuestionAnswer,
+        securityQuestion: {
+          sQuestionId: this.state.sQuestionId,
+          sQuestionAnswer: this.state.sQuestionAnswer,
+        },
         genresSelected: this.state.genres,
       }
       return SignUpRepository.createAccount(param);

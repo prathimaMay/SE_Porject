@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import { Steps, Button, message, Form, Input, Checkbox } from 'antd';
 
@@ -19,16 +19,42 @@ const steps = [
   },
 ];
 
-const ForgotPassword = () => 
-{
-    const [current, setCurrent] = React.useState(0);
+class ForgotPassword extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+        userName: '',
+        newPassword: '',
+        confirmPassword: '',
+        sqQuestionId: '',
+        sqAnswer: '',
+        securitycode: '',
+        current: 0,
+        securityQuestion: {}
+    }
+  }
 
-    const next = () => {
-      setCurrent(current + 1);
+componentDidMount() 
+{
+  fetch('http://localhost:8080/user/securityQuestions?userId=2')
+  .then(res => res.json())
+  .then(data => {
+      console.log(data);
+      this.setState({securityQuestion : data.data.results})
+  });
+}
+
+
+  render()
+  {
+    const current = this.state.current;
+
+    const next= () => {
+        this.setState({ current: current + 1 })
     };
-  
+    
     const prev = () => {
-      setCurrent(current - 1);
+        this.setState({ current: current - 1 })
     };
 
     const onFinish = (values) => {
@@ -38,7 +64,7 @@ const ForgotPassword = () =>
       const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
       };
-    function getStepForms(stepId)
+    const getStepForms = (stepId) =>
     {
         let formItems;
         if(stepId == 0)
@@ -53,11 +79,11 @@ const ForgotPassword = () =>
               },
             ]}
           >
-            <Input />
+            <Input value={this.state.username}/>
           </Form.Item>    
           
           <Form.Item
-            label="What is your best friend's name ?"
+            label={this.state.securityQuestion.question}
             name="securityquestion"
             rules={[
               {
@@ -66,7 +92,7 @@ const ForgotPassword = () =>
               },
             ]}
           >
-          <Input />
+          <Input value={this.state.sqAnswer}/>
           </Form.Item>
           </div>
         return formItems;
@@ -83,12 +109,11 @@ const ForgotPassword = () =>
               },
             ]}
           >
-            <Input />
+            <Input value={this.state.securitycode}/>
           </Form.Item>
           </div>
         return formItems;
         }
-
         else
         {
             formItems = <div><Form.Item
@@ -101,7 +126,7 @@ const ForgotPassword = () =>
               },
             ]}
           >
-            <Input.Password />
+          <Input.Password value={this.state.newPassword}/>
           </Form.Item>
           
           <Form.Item
@@ -114,10 +139,10 @@ const ForgotPassword = () =>
               },
             ]}
           >
-          <Input />
+          <Input value={this.state.confirmPassword}/>
           </Form.Item>
 
-          <Form.Item
+        <Form.Item
         wrapperCol={{
           offset: 8,
           span: 16,
@@ -134,16 +159,17 @@ const ForgotPassword = () =>
     }
 
 
-    return (
-        <div class='signup-container'>
-            <div class='steps'>
+  return (
+    <div>
+    <div className='signup-container'>
+            <div className='steps'>
             <Steps current={current}>
                 { steps.map(item => (
                 <Step key={item.title} title={item.title} />
                 )) }
             </Steps>
             </div>
-      <div className="steps-content forgot-steps-content">        
+    <div className="steps-content forgot-steps-content">        
     <Form
       name="basic"
       labelCol={{
@@ -162,9 +188,7 @@ const ForgotPassword = () =>
     >
     {getStepForms(steps[current].id)}
     </Form>
-    
-        
-      </div>
+    </div>
       <div className="steps-action">
         {current < steps.length - 1 && (
           <Button type="primary" onClick={() => next()}>
@@ -183,6 +207,10 @@ const ForgotPassword = () =>
         )}
       </div>
       </div>
-    );
+      </div>
+  );
+
 }
+}
+
 export default ForgotPassword;
