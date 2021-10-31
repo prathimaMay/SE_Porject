@@ -7,6 +7,10 @@ import Trending from '../MovieCategories/Trending';
 import TopRated from '../MovieCategories/TopRated';
 import Upcoming from '../MovieCategories/Upcoming';
 import NowPlaying from '../MovieCategories/NowPlaying';
+import TopRatedTV from '../MovieCategories/TopRatedTV';
+import PopularTV from '../MovieCategories/PopularTV';
+import AiringTodayTV from '../MovieCategories/AiringTodayTV';
+import OnTheAirTV from '../MovieCategories/OnTheAirTV';
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -34,24 +38,40 @@ class HomePage extends React.Component {
                 <p>You're logged into FilmKritik!!</p>           
             </div>
             <div>
-                <h3>Popular Movies</h3>
+                <h2>Popular Movies</h2>
                 <Popular />
             </div>
             <div>
-                <h3>Trending Movies</h3>
+                <h2>Trending Movies</h2>
                 <Trending />
             </div>
             <div>
-                <h3>Top Rated Movies</h3>
+                <h2>Top Rated Movies</h2>
                 <TopRated />
             </div>
             <div>
-                <h3>Upcoming Movies</h3>
+                <h2>Upcoming Movies</h2>
                 <Upcoming />
             </div>
             <div>
-                <h3>Now Playing Movies</h3>
+                <h2>Now Playing Movies</h2>
                 <NowPlaying />
+            </div>
+            <div>
+                <h2>Top Rated TV Shows</h2>
+                <TopRatedTV />
+            </div>
+            <div>
+                <h2>Popular TV Shows</h2>
+                <PopularTV />
+            </div>
+            <div>
+                <h2>On the Air TV Shows</h2>
+                <OnTheAirTV />
+            </div>
+            <div>
+                <h2>Airing Today TV Shows</h2>
+                <AiringTodayTV />
             </div>
         </div>
         );

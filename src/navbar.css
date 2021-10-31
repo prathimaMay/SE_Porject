@@ -1,11 +1,12 @@
 .topnav {
     overflow: hidden;
     background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
 
 }
 
-.topnav a {
-    float: left;
+.topnav a, .topnav .logout-btn {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -18,10 +19,21 @@
 }
 
 .topnav-right {
-    float: right;
-    padding-top: 0.5%;
+    padding-top: 10px;
+    margin-left: 20%;
 }
 
 .search-bar {
     margin: 5px !important;
+}
+
+.topnav .nav-left-items{
+    display: flex;
+    flex-grow: 1;
+    text-align:center;
+}
+
+.topnav .nav-left-items .nav-left
+{
+    padding-top: 10px;
 }
